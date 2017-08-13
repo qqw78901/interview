@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>community</display-name>
+
+	<welcome-file-list>
+		<welcome-file>/pages/admin/index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<error-page>
+		<error-code>404</error-code>
+		<location>/pages/common/404.jsp</location>
+	</error-page>
+	
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:spring.xml,classpath:spring-mybatis.xml</param-value>
+	</context-param>
+
+	<filter>
+		<description>字符集过滤器</description>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<description>字符集编码</description>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<description>Log拦截器</description>
+		<filter-name>logAndPermitFilter</filter-name>
+		<filter-class>com.jeff.mybatis.autobuild.LogAndPermitFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>logAndPermitFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<description>分页过滤器</description>
+		<filter-name>pageFilter</filter-name>
+		<filter-class>com.jeff.mybatis.page.PageFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>pageFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+
+	<servlet>
+		<description>spring mvc servlet</description>
+		<servlet-name>springMvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<description>spring mvc 配置文件</description>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:spring-mvc.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>springMvc</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name></display-name>
+		<servlet-name>CreateImage</servlet-name>
+		<servlet-class>com.jeff.Servlet.CreateImage</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CreateImage</servlet-name>
+		<url-pattern>/servlet/CreateImage</url-pattern>
+	</servlet-mapping>
+	<listener>
+		<description>spring监听器</description>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
+	<!-- <listener> <description>权限初始化监听器</description> <listener-class>com.jeff.authority.AuthListener</listener-class> 
+		</listener> -->
+
+</web-app>

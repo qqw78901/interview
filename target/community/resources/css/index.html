@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script src="../../pages/js/jquery-1.7.2.min.js"></script>
+<style>
+body{zoom:3;font-size:12px;}
+body span.icons{height:24px;float:none;display:block;margin-left:5px;}
+i{float:left;width:30px;text-align:center;margin-right:10px;}
+hr{clear:both;margin:4px;}
+</style> 
+</head>
+<body>
+<script>
+$(function(){
+	var i = 0,html = '';
+	while (++i < 118){
+		html += '<i><span class="icons icon'+i+'"></span> <div></div> '+i+' </i>';
+		if (i % 10 == 0)
+			html += "<hr />";
+	}
+	$("body").append(html);
+	//
+	$("i").each(function(i,v){
+		v = $(v);
+		div = v.children("div");
+		span = v.children("span");
+		size = span.width() + "x" + span.height();
+		div.text(size);
+		
+	});
+})
+</script>
+</body>
+</html>

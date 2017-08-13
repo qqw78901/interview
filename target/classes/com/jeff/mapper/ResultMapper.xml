@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeff.mapper.ResultMapper">
+
+	<resultMap type="Result" id="ResultRM">
+	</resultMap>
+
+	<resultMap type="ResultVo" id="ResultVoRM">
+	</resultMap>
+	<resultMap type="InterviewResultVo" id="InterviewSummaryRM" autoMapping="true">
+		<id property="id" column="id" />
+		<collection property="enterRows" ofType="EnterRowVo" autoMapping="true">
+		</collection>
+	</resultMap>
+
+	<!-- 上面是一个整体 -->
+
+	<insert id="insert" parameterType="Result">
+	</insert>
+
+	<delete id="deleteById" parameterType="String">
+	</delete>
+
+	<update id="update" parameterType="Result">
+	</update>
+
+	<select id="getById" parameterType="Result" resultType="Result">
+	</select>
+
+	<select id="list" parameterType="Result" resultMap="ResultRM">
+	</select>
+
+	<select id="findByPage" parameterType="Result" resultMap="ResultRM">
+	</select>
+
+	<insert id="addResult" parameterType="Result">
+		INSERT INTO `result` (interview_id,interviewee,state
+		<if test="result != null and result !=''">
+			,result
+		</if>
+		) VALUES (#{interviewId},#{interviewee},"T"
+		<if test="result != null and result !=''">
+			,#{result}
+		</if>
+		)
+	</insert>
+
+
+	<select id="showAllResultbyPage" parameterType="ResultVo"
+		resultMap="ResultVoRM">
+		SELECT r.id,i.id AS
+		interviewee,i.card,i.`name`,i.phone,i.state,r.result
+		FROM `result` r ,
+		`interviewee` i WHERE r.interview_id=#{interviewId}
+		AND
+		i.id=r.interviewee 
+		AND r.state="T"
+		AND i.state="T"
+		<if test="name != null and name !=''">
+			AND i.name LIKE CONCAT("%",#{name},"%")
+		</if>
+		<if test="phone != null and phone !=''">
+			AND i.phone=#{phone}
+		</if>
+		<if test="card != null and card !=''">
+			AND i.card LIKE CONCAT("%",#{card},"%")
+		</if>
+	
+	</select>
+
+	<update id="set" parameterType="Result">
+		UPDATE `result` SET
+		result=#{result}
+		WHERE id=#{id} and state="T"
+	</update>
+
+	<select id="getInterview" parameterType="Result" resultType="Result">
+		select * from `result` where id=#{id}
+	</select>
+
+	<select id="check" parameterType="Result" resultType="int">
+		SELECT
+		COUNT(id) FROM `result` WHERE interview_id=#{interviewId} and
+		interviewee=#{interviewee} and state='T'
+	</select>
+
+	<select id="selectIntervieweeByPage" resultType="IntervieweeResultVo">
+		SELECT
+		ie.id AS
+		id,
+		ie.card AS card,
+		ie.name AS name,
+		ie.phone AS phone,
+		i.title AS title,
+		r.result AS result
+		FROM
+		interview AS i
+		JOIN
+		result AS r
+		ON i.id =
+		r.interview_id
+		JOIN
+		result AS r2 ON r.interviewee =
+		r2.interviewee and 
+		r2.result is not NULL
+		JOIN
+		interviewee AS ie
+		WHERE
+		i.path LIKE CONCAT('/',
+		#{interviewId}, '%')
+		AND i.state =
+		'T'
+		AND r.interviewee = ie.id
+		AND r.state = 'T'
+		AND r2.state = 'T'
+		AND
+		r.id &lt;= r2.id
+		<if test="name != null and name != ''">AND ie.name LIKE CONCAT('%', #{name}, '%')</if>
+		<if test="card != null and card != ''">AND ie.card LIKE CONCAT('%', #{card}, '%')</if>
+		<if test="phone != null and phone != ''">AND ie.phone = #{phone}</if>
+		GROUP BY ie.id , ie.card , ie.name ,
+		ie.phone ,
+		i.title , r.result
+		HAVING COUNT(r.id) = 1
+	</select>
+	<select id="getInterviewSummary" resultMap="InterviewSummaryRM" parameterType="String">
+		SELECT
+		i.id as id,
+		i.name AS name,
+		i.card AS card,
+		i.phone AS phone,
+		r.result AS result,
+		e.text AS answer,
+		f.name AS question,
+		f.type AS question_type,
+		f.type_text AS type_text,
+		f.required AS required
+		FROM
+		result AS r,
+		enter_data AS e,
+		form_th AS f,
+		interviewee AS i
+		WHERE
+		r.interview_id =
+		#{interviewId}
+		AND r.state = 'T'
+		AND i.id = r.interviewee
+		AND
+		e.interviewee = r.interviewee
+		AND e.state = 'T'
+		AND f.id = e.th_id
+		ORDER
+		BY f.orderby;
+	</select>
+	<!--删除的所有下级面试结果 -->
+	<update id="deleteAllNext" parameterType="Result">
+		UPDATE `result` SET
+		result=null,state="F"
+		WHERE state="T" and interviewee=#{interviewee}
+		and interview_id in(
+		SELECT id FROM `interview` WHERE path LIKE
+		CONCAT("%/",#{interviewId},"_%")
+		)
+	</update>
+	<update id="remove" parameterType="Result">
+	    UPDATE `result` set state="F"
+	    WHERE interviewee=#{interviewee};
+	    UPDATE `enter_data` set state="F"
+	    WHERE interviewee=#{interviewee};
+	 	UPDATE `interviewee` set state="F"
+	    WHERE id=#{interviewee}
+	</update>
+	
+
+</mapper>

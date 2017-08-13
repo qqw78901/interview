@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeff.mapper.FormThMapper">
+
+	<resultMap type="FormTh" id="FormThRM">
+	</resultMap>
+	<!-- 上面是一个整体 -->
+
+	<insert id="batchFormTh" parameterType = "java.util.List">
+		insert into 
+		form_th (name,orderby,form_id,type_text,type,required,state)
+		values
+		<foreach item = "item" collection = "list" separator = ",">
+		 (#{item.name},#{item.orderby},#{item.formId},#{item.typeText},#{item.type},#{item.required},"T")
+		</foreach>
+	</insert>
+
+	<delete id="deleteById" parameterType="String">
+	</delete>
+
+	<update id="update" parameterType="FormTh">
+	</update>
+
+	<select id="getById" parameterType="FormTh" resultMap="FormThRM">	
+	</select>
+
+	<select id="list" parameterType="FormTh" resultMap="FormThRM">
+	</select>
+
+	<select id="findByPage" parameterType="FormTh" resultMap="FormThRM">
+	</select>
+
+</mapper>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeff.mapper.EnterDataMapper">
+
+	<resultMap type="EnterData" id="EnterDataRM">
+	</resultMap>
+
+	<!-- 上面是一个整体 -->
+
+	<insert id="insert" parameterType="EnterData">
+	</insert>
+
+	<delete id="deleteById" parameterType="String">
+	</delete>
+
+	<update id="update" parameterType="EnterData">
+	</update>
+
+	<select id="getById" parameterType="String" resultType="EnterData">
+	</select>
+
+	<select id="list" parameterType="EnterData" resultMap="EnterDataRM">
+	</select>
+
+	<select id="findByPage" parameterType="EnterData" resultMap="EnterDataRM">
+	</select>
+
+	<select id="getByIntervieweeId" resultType="EnterDataVo">
+		SELECT
+		e.*,f.name as name,f.orderby,f.form_id,f.type,f.type_text,f.required
+		FROM
+		enter_data e,form_th f 
+		WHERE
+		e.interviewee = #{intervieweeId} 
+		AND f.id=e.th_id 
+		AND e.state="T"
+		ORDER BY CAST(f.orderby as SIGNED)
+	</select>
+
+	<insert id="batchEntry" parameterType="java.util.List">
+		INSERT into
+		`enter_data` (th_id,interviewee,text,state)
+		VALUES
+		<foreach collection="list" item="item" separator=",">
+			(#{item.thId},#{item.interviewee},#{item.text},"T")
+		</foreach>
+	</insert>
+
+</mapper>

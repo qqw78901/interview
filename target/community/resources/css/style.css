@@ -1,0 +1,297 @@
+@charset "gb2312";
+/* CSS Document */
+*{font-size:12px;}
+body,form,ul,dl,ol{margin:0;padding:0;}
+body,a{color:#000;text-decoration:none;}
+body{background-color:#fff;}
+hr{ border-color: #999999;
+    border-style: solid;
+    border-width: 1px 0 0;
+    margin:10px 0;
+}
+input.width1{width:70px;}
+
+
+/******************* 所有统一的图标 *******************/
+.icons{background:url(../images/icons.gif) 0 0 transparent;display:inline;float:left;height:15px;width:15px;}
+.icon1{background-position:0px 0px; width:25px;height:18px;}
+.icon2{background-position:-30px 0px; width:19px;height:18px;}
+.icon3{background-position:-60px 0px; width:12px;height:14px;}
+.icon4{background-position:-90px 0px; width:16px;height:14px;}
+.icon5{background-position:-120px 0px; width:15px;height:15px;}
+.icon6{background-position:-150px 0px; width:16px;height:15px;}
+.icon7{background-position:-180px 0px; width:16px;height:15px;}
+.icon8{background-position:-210px 0px; width:15px;height:16px;}
+.icon9{background-position:-240px 0px; width:14px;height:15px;}
+.icon10{background-position:-270px 0px; width:16px;height:15px;}
+
+.icon11{background-position:0 -120px; width:16px;height:16px;}
+.icon12{background-position:-30px -120px; width:18px;height:13px;}
+.icon13{background-position:-60px -120px; width:17px;height:14px;}
+.icon14{background-position:-90px -120px; width:16px;height:13px;}
+.icon15{background-position:-120px -120px; width:16px;height:15px;}
+.icon16{background-position:-150px -120px; width:13px;height:14px;}
+.icon17{background-position:-180px -120px; width:16px;height:14px;}
+.icon18{background-position:-210px -120px; width:14px;height:13px;}
+.icon19{background-position:-240px -120px; width:16px;height:15px;}
+.icon20{background-position:-270px -120px; width:16px;height:16px;}
+.icon21{background-position:0 -150px; width:16px;height:14px;}
+.icon22{background-position:-30px -150px; width:14px;height:10px;}
+.icon23{background-position:-60px -150px; width:14px;height:16px;}
+.icon24{background-position:-90px -150px; width:15px;height:14px;}
+.icon25{background-position:-120px -150px; width:13px;height:13px;}
+.icon26{background-position:-150px -150px; width:12px;height:15px;}
+.icon27{background-position:-180px -150px; width:15px;height:15px;}
+.icon28{background-position:-210px -150px; width:16px;height:15px;}
+.icon29{background-position:-240px -150px; width:16px;height:14px;}
+.icon30{background-position:-270px -150px; width:14px;height:15px;}
+.icon31{background-position:0 -180px; width:15px;height:13px;}
+.icon32{background-position:-30px -180px; width:12px;height:17px;}
+.icon33{background-position:-60px -180px; width:16px;height:15px;}
+.icon34{background-position:-90px -180px; width:14px;height:15px;}
+.icon35{background-position:-120px -180px; width:16px;height:16px;}
+.icon36{background-position:-150px -180px; width:18px;height:15px;}
+.icon37{background-position:-180px -180px; width:15px;height:13px;}
+.icon38{background-position:-210px -180px; width:17px;height:15px;}
+.icon39{background-position:-240px -180px; width:16px;height:16px;}
+.icon40{background-position:-270px -180px; width: 17px;height:15px;}
+
+.icon41{background-position:0 -210px; width: 16px;height: 16px;}
+.icon42{background-position:-30px -210px; width: 15px;height: 14px;}
+.icon43{background-position:-60px -210px; width: 17px;height: 14px;}
+.icon44{background-position:-90px -210px; width: 16px;height: 16px;}
+.icon45{background-position:-120px -210px; width:16px;height:16px;}
+.icon46{background-position:-150px -210px; width:18px;height:15px;}
+.icon47{background-position:-180px -210px; width: 14px;height: 16px;}
+.icon48{background-position:-210px -210px; width: 19px;height: 18px;}
+.icon49{background-position:-240px -210px; width:16px;height:15px;}
+.icon50{background-position:-270px -210px; width:17px;height:14px;}
+
+.icon51{background-position:0 -240px; width: 15px;height: 15px;}
+.icon52{background-position:-30px -240px; width:16px;height: 16px;}
+.icon53{background-position:-60px -240px; width: 16px;height:14px;}
+.icon54{background-position:-90px -240px; width: 14px;height: 11px;}
+.icon55{background-position:-120px -240px; width: 15px;height: 14px;}
+.icon56{background-position:-150px -240px; width:16px;height:16px;}
+.icon57{background-position:-180px -240px; width: 12px;height: 13px;}
+.icon58{background-position:-210px -240px; width: 16px;height: 14px;}
+.icon59{background-position:-240px -240px; width: 15px;height: 14px;}
+.icon60{background-position:-270px -240px; width:14px;height:14px;}
+
+.icon61{background-position:0 -270px; width: 16px;height: 12px;}
+.icon62{background-position:-30px -270px; width: 11px;height: 9px;}
+.icon63{background-position:-60px -270px; width: 18px;height:14px;}
+.icon64{background-position:-90px -270px; width: 15px;height: 14px;}
+.icon65{background-position:-120px -270px; width: 13px;height: 13px;}
+.icon66{background-position:-150px -270px; width: 13px;height: 13px;}
+.icon67{background-position:-180px -270px; width: 13px;height: 11px;}
+.icon68{background-position:-210px -270px; width: 10px;height: 11px;}
+.icon69{background-position:-240px -270px; width: 15px;height: 14px;}
+.icon70{background-position:-270px -270px; width:12px;height:12px;}
+
+.icon71{background-position:0 -300px; width: 12px;height:12px;}
+.icon72{background-position:-30px -300px; width: 13px;height: 13px;}
+.icon73{background-position:-60px -300px; width: 15px;height:14px;}
+.icon74{background-position:-90px -300px; width: 14px;height: 16px;}
+.icon75{background-position:-120px -300px; width: 12px;height:13px;}
+.icon76{background-position:-150px -300px; width:13px;height:13px;}
+.icon77{background-position:-180px -300px; width: 12px;height: 12px;}
+.icon78{background-position:-210px -300px; width: 11px;height: 12px;}
+.icon79{background-position:-240px -300px; width: 11px;height: 11px;}
+.icon80{background-position:-270px -300px; width: 11px;height: 11px;}
+
+.icon81{background-position:0 -330px; width: 14px;height: 14px;}
+.icon82{background-position:-30px -330px; width:13px;height:13px;}
+.icon83{background-position:-60px -330px; width:15px;height: 17px;}
+.icon84{background-position:-90px -330px; width:14px;height: 14px;}
+.icon85{background-position:-120px -330px; width: 14px;height: 15px;}
+.icon86{background-position:-150px -330px; width: 15px;height:12px;}
+.icon87{background-position:-180px -330px; width: 15px;height:12px;}
+.icon88{background-position:-210px -330px; width: 16px;height: 16px;}
+.icon89{background-position:-240px -330px; width: 14px;height: 16px;}
+.icon90{background-position:-270px -330px; width: 13px;height: 16px;}
+
+.icon91{background-position:0 -360px; width:6px;height:6px;}
+.icon92{background-position:-30px -360px; width:6px;height:6px;}
+.icon93{background-position:-60px -360px; width:16px;height:16px;}
+.icon94{background-position:-90px -360px; width:16px;height:16px;}
+.icon95{background-position:-120px -360px; width:13px;height:13px;}
+.icon96{background-position:-150px -360px; width:13px;height:13px;}
+.icon97{background-position:-180px -360px; width:9px;height:13px;}
+.icon98{background-position:-210px -360px; width:22px;height:11px;}
+.icon99{background-position:-240px -360px; width:22px;height:11px;}
+.icon100{background-position:-270px -360px; width:22px;height:11px;}
+
+.icon101{background-position:0 -390px; width:8px;height:4px;}
+.icon102{background-position:-30px -390px; width:8px;height:4px;}
+.icon103{background-position:-60px -390px; width:6px;height:9px;}
+.icon104{background-position:-90px -390px; width:14px;height:11px;}
+.icon105{background-position:-120px -390px; width:14px;height:11px;}
+.icon106{background-position:-150px -390px; width:11px;height:11px;}
+.icon107{background-position:-180px -390px; width:11px;height:11px;}
+.icon108{background-position:-210px -390px; width:20px;height:18px;}
+.icon109{background-position:-240px -390px; width:16px;height:16px;}
+.icon110{background-position:-270px -390px; width:16px;height:16px;}
+
+.icon111{background-position:0 -420px; width:24px;height:24px;}
+.icon112{background-position:-30px -420px; width:16px;height:15px;}
+.icon113{background-position:-60px -420px; width:16px;height:13px;}
+.icon114{background-position:-90px -420px; width:16px;height:13px;}
+.icon115{background-position:-120px -420px; width:16px;height:15px;}
+.icon116{background-position:-150px -420px; width:16px;height:16px;}
+.icon117{background-position:-180px -420px; width:18px;height:15px;}
+
+.icon_arr{background-position:1px -58px;height: 13px;width: 13px;}
+/******************* 左边一级导航栏  *******************/
+/* 总div */
+.dtree {
+    padding: 10px 0 20px 5px;
+}
+.dTreeNode{
+	clear:both;
+	width:151px;
+}
+/* 一级 */
+.leftNavTree_mainItem,.leftNavTree_mainItem_off,.leftNavTree_mainItem_nochild{
+background: url(../images/left-bg1.png) no-repeat 0 -27px;
+width: 128px;
+_width:151px;
+height: 27px;
+display: block;
+line-height: 27px;
+padding-left:22px;
+margin-top:3px;
+color:#fff;
+}
+.leftNavTree_mainItem:hover,.leftNavTree_mainItem_off:hover,.leftNavTree_mainItem_nochild:hover{color:#fff;}
+.leftNavTree_mainItem_off{background-position:0 0;}
+.leftNavTree_mainItem_nochild{background-position:0 -54px;}
+/* 子级 */
+.leftNavTree_subItemBox{clear:both;margin:3px 0 5px;}
+/* icon 调整 */
+.leftNavTree_subItemBox span{height:18px;width:18px;}
+.leftNavTree_subItemBox img{float:left;margin:0;display:inline;margin-left:-6px\9;}
+.leftNavTree_subItemBox a{float:left;line-height:18px;display: inline-block;padding-left: 0px;width: 97px;}
+.leftNavTree_subItemBox a:hover{background-color:#e5efff}
+/* 弹出菜单UL */
+.contextMenu{height:25px;overflow:hidden;}
+.clip{padding-top:5px}
+
+/******************* 主要页面部分  *******************/
+/*
+* 
+*/
+/*********** 顶部 **********/
+body.mainpage{margin:5px 5px 0px 5px;}
+div.mainpage_headerNavBox{height:22px;margin-bottom:8px;}
+div.mainpage_headerNavBox a{background:url(../images/bg_pageTitle.gif) 100% 0;padding:0 26px 0 10px;height:22px;line-height:22px;;display:inline-block;position:relative;}
+div.mainpage_headerNavBox a.on{background-position:100% -22px;}
+div.mainpage_headerNavBox a:hover{text-decoration:none;color:#092f6e;}
+div.mainpage_headerNavBox i{background:url(../images/bg_pageTitle.gif) 0 0;position:absolute;left:0;top:0;height:22px;width:10px;}
+div.mainpage_headerNavBox a.on i{background-position:0 -22px;}
+/*********** 主体 ***********/
+body.mainpageframe{}
+div.mainpageframe_wrap{border:1px solid #99bbe8;}
+/* 标题 */
+div.mainpageframe_wrap h1{color:#0c489b;font-size:14px;display:block;height: 25px;line-height: 25px;margin: 0;overflow: hidden;background:url(../images/bg_blue.gif) repeat-x;}
+/* 图标宽度统一，为了方便与下面的searchField中的第一个图标后面的文字对齐 */
+div.mainpageframe_wrap h1 .icons{width:24px;margin: 7px 0 0 7px;}
+/* 搜索区域 */
+/*
+* searchField中，所有表格第一个td都用 .firstTd,以使第一个图标宽度跟上面的一致，以使后因的文字对齐
+* 图标右边margin要为0，不然上面的对齐失效
+* 第二个表格要添加类 .tableGt1，以实现表格之间的空隙
+* 第个搜索的条件（几个一起的td）跟后面的搜索条件需要用 td.spliter 来区分
+* 输入文本框统一用 input.text 来标识，以做边框，宽度需要的话要由html内控制
+* 日期用原来 .Wdate
+* 搜索按钮用 .search
+*/
+div.mainpageframe_wrap .searchField{background-color:#efefef;padding:5px 0 4px 4px;}
+div.mainpageframe_wrap .searchField table{}
+div.mainpageframe_wrap .searchField table.tableGt1{margin-top:7px;}
+div.mainpageframe_wrap .searchField table td.firstTd{width:18px;}
+div.mainpageframe_wrap .searchField table td.spliter{width:10px;}
+div.mainpageframe_wrap .searchField table td{vertical-align:middle;padding:0px 2px 0 0 ;}
+div.mainpageframe_wrap .searchField table td .icons{margin:0 1px 0 0px;}
+div.mainpageframe_wrap .searchField table td input{border:1px solid #a4bed4;}
+div.mainpageframe_wrap .searchField table td input.text{background-color:#fff;width:100px;}
+div.mainpageframe_wrap .searchField table td input.width3{width:150px;}
+div.mainpageframe_wrap .searchField table td input.search{width:58px;height:18px;background:url(../images/btn_search.gif) no-repeat;text-indent:-99em;border:0;cursor:pointer;margin:0 0 0 20px;display:block;float:left;}
+div.mainpageframe_wrap .searchField table td input.download{width:58px;height:18px;background:url(../images/btn_download.gif) no-repeat;text-indent:-99em;border:0;cursor:pointer;margin:0 0 0 20px;display:block;float:left;}
+div.mainpageframe_wrap .searchField table td input.Wdate{width:81px;}
+div.mainpageframe_wrap .searchField table td input.Wdate_width{width:137px;}
+/* 列表区域 */
+div.mainpageframe_wrap .list_table{width:100%;}
+div.mainpageframe_wrap .list_table th,div.mainpageframe_wrap .list_table td{text-align:center;white-space: nowrap;}
+div.mainpageframe_wrap .list_table th{background:url(../images/bg_th.gif) 100% 0 no-repeat;line-height:22px;height:22px;overflow:hidden;border:1px solid #ccc;border-width:1px 0;}
+div.mainpageframe_wrap .list_table th,div.mainpageframe_wrap .list_table th a,div.mainpageframe_wrap .list_table th a:hover{color:#00008b;font-weight:normal;white-space: nowrap;}
+div.mainpageframe_wrap .list_table td{line-height:22px;background:url(../images/dot_bg.gif) 100% 100% no-repeat transparent;white-space: nowrap;}
+div.mainpageframe_wrap .list_table .paginate{background:#e5efff;padding:4px 0;margin:12px 0 4px 0;text-align:center;}
+
+
+/******************* 内容编辑页面部分  *******************/
+/*
+* html架构
+* div.mainpageframe_wrap
+* -form
+* --h1
+* --//
+* --table.edit_table_wrap cellspacing="10"
+* ---div.td_box	//线辅助框
+* ---//编辑数据表格，分左右两列，左边需要限定宽度
+* ----table.edit_table
+* ----//左边标题
+* -----td[width]
+* ------span.icons,icon_arr		//右箭头
+* ------em=*					//必填标志
+* ------span=标题				//标题框
+* 	 //右边数据录入框，text,textarea都限定了宽度
+* -----td
+* ------input.edit_text type='text'
+* ------textarea.edit_textarea
+* //数据表格区域
+* -div.option_div
+* --h2
+* --table align="center" cellspacing="0"
+* ---tr
+* ----th
+* ----th
+* ---tr
+* ----td
+* ----td
+* --div.option_btn		//按钮
+*/
+body.editpage{margin:0;}
+table.edit_table_wrap{width:100%;margin:0px auto;text-align: center;}
+table.edit_table_wrap td{border:1px solid #dfe4eb;background-color:#f4f5f8;vertical-align:top;}
+table.edit_table_wrap td div.td_box{border:1px solid #fff;padding:2px;} 
+table.edit_table{border-collapse:separate; border-spacing: 0px;}
+table.edit_table td{border:none;vertical-align:middle;height:22px;}
+table.edit_table td.edit_table_firstTd{width:123px;}
+/* 编辑页面文本框 */
+/* 一行单列型 */
+input.edit_text{width:460px;border:1px solid #a4bed4;height:20px;line-height:20px;margin:1px 0;padding:0;}
+/* 一行两列型 */
+input.edit_text2{width:220px;border:1px solid #a4bed4;height:20px;line-height:20px;margin:1px 0;padding:0;}
+/* 一行三列型 */
+input.edit_text3{width:100px;border:1px solid #a4bed4;height:20px;line-height:20px;margin:1px 0;padding:0;}
+/* 编辑页面多行文本框 */
+/* 一行单列型 */
+textarea.edit_text,.edit_textarea{width:490px;height:100px;border:1px solid #a4bed4;}
+/* 一行两列型 */
+textarea.edit_text2,.edit_textarea2{width:250px;height:90px;border:1px solid #a4bed4;}
+table.edit_table em{ color: red;margin: 0 2px;text-decoration: none;font-style : normal;}
+/*  */
+div.option_div{background-color:#e5efff;}
+div.option_div h2{text-align:center;font-size:12px;font-weight:bold;color:#000;padding:12px;}
+div.option_div table{width:98%;margin:0 auto;border-collapse: separate; border-spacing: 0px; background-color:#fff;}
+div.option_div table th,div.option_div table td{text-align:center;}
+div.option_div table th{background:url(../images/bg_th.gif) 100% 0 no-repeat;line-height:22px;height:22px;overflow:hidden;border:1px solid #ccc;border-width:1px 0;}
+div.option_div table th,div.option_div table th a,div.option_div table th a:hover{color:#00008b;font-weight:normal;}
+div.option_div table td{line-height:22px;background:url(../images/dot_bg.gif) 100% 100% no-repeat transparent;}
+div.option_div div.option_btn{text-align:center;padding:15px 0 10px;}
+/* radio checkbox 横行排列 */
+.inputList{float:left;display:inline;margin-right:10px;}
+
+.index_ui_table{background:url(../../pages/background/images/logoutRow.png) 0 -26px repeat-x;}
+.index_ui_logout{display:inline-block;width:130px;height:26px;background:url(../../pages/background/images/logoutRow.png) 0 0;}

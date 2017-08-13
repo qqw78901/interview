@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeff.mapper.DeptMapper">
+
+	<resultMap type="Dept" id="deptRM">
+	</resultMap>
+	
+	<!-- 上面是一个整体 -->
+
+	<insert id="insert" parameterType="Dept">
+	</insert>
+
+	<delete id="deleteById" parameterType="String">
+	</delete>
+
+	<update id="update" parameterType="Dept">
+	</update>
+
+	<select id="getById" parameterType="String" resultType="Dept">
+	</select>
+
+	<select id="list" parameterType="Dept" resultMap="deptRM">
+	</select>
+
+	<select id="findByPage" parameterType="Dept" resultMap="deptRM">
+	</select>
+	
+	<select id="check" parameterType="Dept" resultType="Dept">
+		select * from `dept` a where a.name = #{name} and a.state='T'
+	</select>
+
+</mapper>

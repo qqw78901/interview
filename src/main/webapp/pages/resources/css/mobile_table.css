@@ -1,0 +1,103 @@
+@charset "gb2312";
+ body { 
+font: normal 13px auto "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif; 
+color: #4f6b72; 
+background: #E6EAE9; 
+} 
+
+a { 
+color: #c75f3e; 
+} 
+
+.mytable { 
+width: 100%; 
+padding: 0; 
+margin: 0; 
+} 
+
+caption { 
+padding: 0 0 1px 0; 
+width: 100%; 
+font: italic 13px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif; 
+text-align: center; 
+} 
+
+th { 
+font: bold 13px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif; 
+color: #000; 
+border-right: 1px solid #C1DAD7; 
+border-bottom: 1px solid #C1DAD7; 
+border-top: 1px solid #C1DAD7; 
+letter-spacing: 1px; 
+text-transform: uppercase; 
+text-align: left; 
+padding: 1px 1px 1px 1px; 
+background: #CAE8EA  no-repeat; 
+text-align: center;
+font-weight:bold;
+} 
+
+th.nobg { 
+border-top: 0; 
+border-left: 0; 
+border-right: 1px solid #C1DAD7; 
+background: none; 
+text-align: center; 
+} 
+
+td { 
+border-right: 1px solid #C1DAD7; 
+border-bottom: 1px solid #C1DAD7; 
+/* background: #fff;  */
+font-size:12.5px; 
+padding: 1px 1px 1px 1px; 
+color: #000;
+word-break:break-all;
+}
+
+tbody tr:nth-child(odd) {  
+    background-color: #FFFFFF; 
+}  
+tbody tr:nth-child(even){  
+    background-color: #E0EEEE;
+}
+
+.first_tr td { 
+border-top: 1px solid #C1DAD7; 
+}
+
+tr>:first-child{
+border-left: 1px solid #C1DAD7; 
+}
+ 
+
+.row{
+	background: #fff; 
+	color: #000; 
+	width: 15%;
+	text-align: center; 
+	font-size:12.5px; 
+	font-weight:bold;
+}
+
+td.alt { 
+background: #F5FAFA; 
+color: #797268; 
+} 
+
+th.spec { 
+border-left: 1px solid #C1DAD7; 
+border-top: 0; 
+background: #fff no-repeat; 
+font: bold 1px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif; 
+text-align: center; 
+} 
+
+th.specalt { 
+border-left: 1px solid #C1DAD7; 
+border-top: 0; 
+background: #f5fafa no-repeat; 
+font: bold 1px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif; 
+color: #797268; 
+text-align: center; 
+} 

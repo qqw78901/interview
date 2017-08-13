@@ -1,0 +1,218 @@
+ .ui-mobile .icon-set {
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+    min-width: 300px;
+}
+
+.center div {
+    text-align: center;
+    vertical-align: middle;
+}
+.ui-body-c .ui-link {
+   /*  color: #CCCCCC !important; */
+    font-weight: normal;
+}
+
+.bulid , .bulid a{
+ color:#B3B3B3 !important;
+}
+.ui-mobile .icon-set a {
+   /*  text-decoration: none; */
+}
+/* 
+body {
+    background-color: #000000;
+}
+.ui-page {
+    background-color: #000000;
+}
+.ui-body-a, .ui-body-c {
+    background: -moz-linear-gradient(center top , #666666, #000000, #000000, #000000, #000000) repeat scroll 0 0 transparent;
+}
+.ui-body-c.ui-dialog {
+}
+.ui-btn-active {
+    background: -moz-linear-gradient(center top , #D4A021, #E3AB23) repeat scroll 0 0 #E3AB23;
+    border: 1px solid #D4A021;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 0 -1px 1px #E3AB23;
+}
+#social, #social-content {
+    background: none repeat scroll 0 0 #000000;
+}
+.ui-li-wrap {
+    overflow: visible;
+    white-space: normal;
+}
+.logo, .footer, .copy, .big-button {
+    margin: 0 0 20px;
+    text-align: center;
+    vertical-align: middle;
+}
+.footer {
+    margin: 50px 0 10px;
+}
+.copy {
+    color: #999999;
+    font-size: 11px;
+    margin: 0;
+}
+h2 {
+    color: #999999;
+    font-size: 1.17em;
+    font-weight: bold;
+    margin: 1em 0;
+}
+.footnote {
+    color: #999999;
+    font-size: 0.5em;
+}
+.ui-mobile .icon-set {
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+    min-width: 300px;
+}
+.ui-grid-b {
+}
+.center div {
+    text-align: center;
+    vertical-align: middle;
+}
+.ui-body-c .ui-link {
+    color: #CCCCCC !important;
+    font-weight: normal;
+}
+.ui-mobile .icon-set a {
+    text-decoration: none;
+}
+.ui-li-static.ui-li-has-thumb {
+    min-height: 25px;
+    padding-left: 45px;
+    padding-top: 15px;
+}
+.ui-li-heading {
+    margin: 0 0 0.6em;
+}
+.ui-btn-text {
+    vertical-align: top;
+}
+.ui-li-desc {
+    font-size: 14px;
+}
+.engage-foot {
+    color: #666666;
+    font-size: 12px;
+    margin: 10px 0 0;
+}
+.comments h3 {
+    color: #E3AB23;
+}
+.comments ul {
+}
+.comments ul li {
+    border-bottom: 1px solid #666666;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+.comments ul li .foot {
+    color: #999999;
+    font-size: 12px;
+    margin: 10px 0 0;
+}
+em, .ui-body-c em .ui-link {
+    color: #E3AB23 !important;
+    font-style: normal;
+    font-weight: bold;
+}
+.bfit {
+    display: inline;
+    float: left;
+    margin: 0 10px 10px 0;
+}
+.ui-bar-b {
+    background: -moz-linear-gradient(center top , #E3AB23, #D4A021, #D4A021, #D4A021) repeat scroll 0 0 transparent;
+}
+.ui-li-divider {
+    color: #000000;
+    font-size: 16px;
+    font-weight: normal;
+}
+.ui-br {
+    border-bottom: medium none;
+}
+.summary-label {
+    color: #B3B3B3;
+    font-weight: bold;
+    padding: 0 5px 5px 0;
+    text-align: right;
+    vertical-align: top;
+}
+.summary-value {
+    padding: 0 5px 5px 0;
+    text-align: left;
+}
+#guide-ball-model-list {
+    min-height: 100px;
+}
+.ui-checkbox-on .ui-icon, .ui-radio-on .ui-icon {
+    background-color: #E3AB23;
+}
+.vchat-icon p {
+    text-align: center;
+}
+.vchat-icon img {
+    background: url("/assets/images/layout/facetime.gif") no-repeat scroll 0 0 transparent;
+}
+.survey .ui-block-a {
+    width: 70%;
+}
+.survey .ui-block-b {
+    width: 30%;
+}
+.survey .ui-block-b img {
+    margin-left: 10px;
+}
+.survey input.ui-input-text, .survey textarea.ui-input-text {
+    margin-bottom: 10px;
+}
+.survey .legal {
+    font-size: 0.7em;
+}
+.survey .ui-body-a, .ui-dialog.ui-overlay-a {
+    border: 1px solid #4A4A4A;
+}
+.ui-body-e, .ui-dialog.ui-overlay-e {
+    background: linear-gradient(white, #FF6666) repeat scroll 0 0 #FF6666;
+    border: 1px solid #000000;
+}
+.ui-dialog p {
+    font-weight: bold;
+}
+.ui-btn-up-e {
+    background: linear-gradient(#E3AB23, #D4A021) repeat scroll 0 0 #D4A021;
+}
+.ui-btn-hover-e {
+    background: linear-gradient(#E3BA57, #D3AE54) repeat scroll 0 0 #D3AE54;
+}
+.ui-btn-down-e {
+    background: linear-gradient(#E3AB23, #D4A021) repeat scroll 0 0 #D4A021;
+}
+.guide-mobile {
+    display: none;
+}
+.guide-new {
+    display: none;
+}
+.guide-mobile {
+    display: block;
+}
+* .ui-grid-b .ui-block-c {
+    width: 33%;
+} */

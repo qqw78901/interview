@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeff.mapper.AdminMapper">
+
+	<resultMap type="Admin" id="adminRM">
+	</resultMap>
+
+	<!-- 上面是一个整体 -->
+
+	<insert id="insert" parameterType="Admin">
+	</insert>
+
+	<delete id="deleteById" parameterType="String">
+	</delete>
+
+	<update id="update" parameterType="Admin">
+	</update>
+
+	<select id="getById" parameterType="String" resultType="Admin">
+	</select>
+
+	<select id="list" parameterType="Admin" resultMap="adminRM">
+	</select>
+
+	<select id="findByPage" parameterType="Admin" resultMap="adminRM">
+	</select>
+
+	<select id="login" parameterType="adminLoginVo" resultMap="adminRM">
+		select a.*,b.name as deptName from `user` a,`dept` b where a.login_name = #{loginName} and
+		a.password = #{password} and a.state='T' and b.state='T' and b.id=a.dept_id
+	</select>
+
+	<update id="changePassword" parameterType="Admin">
+	    update `user` set password = #{password} where id = #{id}
+	</update>
+</mapper>

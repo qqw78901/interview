@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeff.mapper.InterviewMapper">
+
+	<resultMap type="Interview" id="InterviewRM">
+	</resultMap>
+	
+	<!-- 上面是一个整体 -->
+
+	<insert id="insert" parameterType="Interview">
+	</insert>
+
+	<delete id="deleteById" parameterType="String">
+	</delete>
+
+	<update id="update" parameterType="Interview">
+	</update>
+
+	<select id="getById" parameterType="Interview" resultType="Interview">
+	</select>
+
+	<select id="list" parameterType="Interview" resultMap="InterviewRM">
+	</select>
+
+	<select id="findByPage" parameterType="Interview" resultMap="InterviewRM">
+	</select>
+
+	<select id="selectByPage" parameterType="Interview" resultMap="InterviewRM">
+		select * from `interview` where id is not null
+		<choose>
+			<when test="followBy != null and followBy !=''">
+				and follow_by =#{followBy}
+			</when>
+			<otherwise>
+				and follow_by is null
+			</otherwise>
+		</choose>
+		<if test="deptId != null and deptId !=''">
+			and dept_id=#{deptId}
+		</if>
+		and state = 'T'
+	</select>
+
+	<update id="change" parameterType="Interview">
+		<if test="isPublic != null and isPublic !=''">
+			UPDATE `interview` SET is_public='F' WHERE is_public='T';
+		</if>
+		UPDATE `interview` SET dept_id=dept_id
+		<if test="state != null and state !=''">
+			,state=#{state}
+		</if>
+		<if test="title != null and title !=''">
+			,title=#{title}
+		</if>
+		<if test="followBy != null and followBy !=''">
+			,follow_by=#{followBy}
+		</if>
+		<if test="isPublic != null and isPublic !=''">
+			,is_public=#{isPublic}
+		</if>
+		WHERE id=#{id}
+
+	</update>
+	
+	<select id="checkChild" parameterType="Interview" resultType="int">
+		SELECT COUNT(id) FROM interview WHERE follow_by=#{id} and state='T'
+	</select>
+	
+	<select id="getChild" parameterType="String" resultType="String">
+		SELECT id FROM interview WHERE follow_by=#{id} and state='T'
+	</select>
+	
+	<select id="getCurrent" parameterType="Interview" resultType="Interview">
+		SELECT * FROM interview WHERE is_public="T" and state='T' and dept_id=#{deptId}
+	</select>
+	
+
+</mapper>

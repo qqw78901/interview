@@ -1,0 +1,130 @@
+@charset "gb2312";
+/* CSS Document */
+body {
+  background-color: #ffffff !important; 
+}
+
+.dataTables_wrapper .row:first-child {
+    padding-top: 8px !important; 
+    padding-bottom: 8px !important; 
+}
+
+.dataTables_wrapper .row:last-child {
+    padding-top: 8px !important; 
+    padding-bottom: 8px !important; 
+}
+
+.del{
+text-decoration: line-through;
+}
+.span_btn{
+color: #337ab7;
+cursor: pointer;
+}
+.dataTables_empty{
+color: red;
+}
+
+.span_btn:focus,.span_btn:hover{
+color: #23527c;
+text-decoration: underline;
+}
+.error{color: #d16e6c;} 
+
+.search_box{
+
+}
+.main_grid{
+padding-top: 5px;
+}
+
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"]{
+min-width: 60pX;
+}
+
+input[type=checkbox] {
+   width: 16px;
+   height: 16px;
+}
+
+.widget-box em {
+			  color: red;
+			  margin: 0 2px;
+			  text-decoration: none;
+			  font-style: normal;
+			  line-height: 30px;
+}
+
+.ui-jqgrid .ui-jqgrid-labels {
+  border-bottom: none;
+  background: #307ecc;  
+  background-image: -webkit-linear-gradient(top, #529FCB 0%, #438eb9 100%);
+  background-image: -o-linear-gradient(top, #529FCB 0%, #438eb9 100%);
+  background-image: linear-gradient(to bottom, #529FCB 0%, #438eb9 100%);
+   
+}
+
+.ui-jqgrid .ui-subgrid .ui-jqgrid .ui-jqgrid-hdiv .ui-jqgrid-htable .ui-jqgrid-labels{
+  border-bottom: none;
+  background: #B3DEF4;  
+  background-image: -webkit-linear-gradient(top, #B3DEF4 0%, #6BBEED 100%);
+  background-image: -o-linear-gradient(top, #B3DEF4 0%, #6BBEED 100%);
+  background-image: linear-gradient(to bottom, #B3DEF4 0%, #6BBEED 100%);
+}	
+	
+.ui-jqgrid-sortable {   
+  color: #fff;
+  font-weight: bold;
+}
+
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.form_smiple{
+}
+
+.form_smiple .form-group label,
+.form_smiple .form-group select,	
+.form_smiple .form-group div{
+	margin-right: 10px;
+	margin-bottom: 5px;
+}
+
+.alert {
+  padding: 10px;
+}
+
+.select {
+  padding: 3px 4px;
+  height: 34px;
+}
+
+/* 弹出框宽带 */
+.my-full-modal .modal-dialog{
+	width: 800px;
+}
+
+/* 手机自带换行添加底边框 */
+.child_bottom button{
+	margin-bottom: 6px;
+}
+
+/* 树样式 */
+.tree .tree-item {
+    height: auto !important;
+}

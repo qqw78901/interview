@@ -1,0 +1,108 @@
+package com.jeff.mybatis.page;
+
+
+/**
+ * 用来传递列表对象的ThreadLocal数据
+ * 
+ * @author jeff he
+ *
+ */
+public class PageContext {
+	/**
+	 * 分页大小
+	 */
+	private static ThreadLocal<Integer> pageLimit = new ThreadLocal<Integer>();
+	/**
+	 * 分页的起始页
+	 */
+	private static ThreadLocal<Integer> pageOffset = new ThreadLocal<Integer>();
+	/**
+	 * 列表的排序字段?
+	 */
+	private static ThreadLocal<String> sort = new ThreadLocal<String>();
+	/**
+	 * 列表的排序方法?
+	 */
+	private static ThreadLocal<String> order = new ThreadLocal<String>();
+	/**
+	 * 总记录数
+	 */
+	private static ThreadLocal<Long> totalCount = new ThreadLocal<Long>();
+	/**
+	 * 总页数
+	 */
+	private static ThreadLocal<Long> totalPage = new ThreadLocal<Long>();
+
+	public static Integer getPageLimit() {
+		return pageLimit.get();
+	}
+
+	public static void setPageLimit(Integer _pageLimit) {
+		pageLimit.set(_pageLimit);
+	}
+
+	public static Long getTotalCount() {
+		return totalCount.get();
+	}
+
+	public static void setTotalCount(Long _totalCount) {
+		totalCount.set(_totalCount);
+	}
+
+	public static Long getTotalPage() {
+		return totalPage.get();
+	}
+
+	public static void setTotalPage(Long _totalPage) {
+		totalPage.set(_totalPage);
+	}
+
+	public static Integer getPageOffset() {
+		return pageOffset.get();
+	}
+
+	public static void setPageOffset(Integer _pageOffset) {
+		pageOffset.set(_pageOffset);
+	}
+
+	public static String getSort() {
+		return sort.get();
+	}
+
+	public static void setSort(String _sort) {
+		PageContext.sort.set(_sort);
+	}
+
+	public static String getOrder() {
+		return order.get();
+	}
+
+	public static void setOrder(String _order) {
+		PageContext.order.set(_order);
+	}
+
+	public static void removePageLimit() {
+		pageLimit.remove();
+	}
+
+	public static void removePageOffset() {
+		pageOffset.remove();
+	}
+
+	public static void removeSort() {
+		sort.remove();
+	}
+
+	public static void removeOrder() {
+		order.remove();
+	}
+
+	public static void removeTotalCount() {
+		totalCount.remove();
+	}
+
+	public static void removeTotalPage() {
+		totalPage.remove();
+	}
+
+}

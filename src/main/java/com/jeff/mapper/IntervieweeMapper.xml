@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeff.mapper.IntervieweeMapper">
+
+	<resultMap type="Interviewee" id="IntervieweeRM">
+	</resultMap>
+	
+	<!-- 上面是一个整体 -->
+
+	<insert id="insert" parameterType="Interviewee">
+	</insert>
+
+	<delete id="deleteById" parameterType="String">
+	</delete>
+
+	<update id="update" parameterType="FormTh">
+	</update>
+
+	<select id="getById" parameterType="Interviewee" resultType="Interviewee">
+	</select>
+
+	<select id="list" parameterType="Interviewee" resultMap="IntervieweeRM">
+	</select>
+
+	<select id="findByPage" parameterType="Interviewee" resultMap="IntervieweeRM">
+	</select>
+	<!-- 缺少state 发现bug后再看看是否需要补上 已补两个-->
+	<select id="selecteeByformIdByPage" parameterType="Form" resultMap="IntervieweeRM">
+	SELECT i.* FROM enter_data e,form_th f,interviewee i WHERE f.form_id=#{id} 
+	AND i.state="T" 
+	AND e.state="T"
+	AND e.th_id=f.id AND i.id=e.interviewee GROUP BY i.id
+	</select>
+
+</mapper>

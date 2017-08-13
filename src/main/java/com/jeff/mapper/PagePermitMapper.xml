@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeff.mapper.PagePermitMapper">
+
+	<resultMap type="PagePermit" id="pagePermitRM">
+	</resultMap>
+
+	<!-- 上面是一个整体 -->
+
+	<insert id="insert" parameterType="PagePermit">
+	</insert>
+
+	<delete id="deleteById" parameterType="String">
+	</delete>
+
+	<update id="update" parameterType="PagePermit">
+	</update>
+
+	<select id="getById" parameterType="String" resultType="PagePermit">
+	</select>
+
+	<select id="list" parameterType="PagePermit" resultMap="pagePermitRM">
+	</select>
+
+	<select id="findByPage" parameterType="PagePermit" resultMap="pagePermitRM">
+	</select>
+
+	<select id="getMenuInId" parameterType="String" resultMap="pagePermitRM">
+		select * from `page_permit` a 
+		<where>
+			a.id in
+			<foreach collection="ids" item="item" index="index" open="("
+				separator="," close=")">#{item}</foreach>
+		</where>
+	</select>
+	
+</mapper>
