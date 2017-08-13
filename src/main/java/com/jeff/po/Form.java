@@ -13,6 +13,8 @@ public class Form extends BasePo implements Serializable {
 	private Date startTime;//开始报名时间
 	private Date endTime;//结束报名时间
 	private String timeLimit;//是否限制报名时间 T/F
+	private String isPublic;//是否公开
+	private String domain;//二级域名
 	private String state;
 
 	public String getState() {
@@ -81,6 +83,22 @@ public class Form extends BasePo implements Serializable {
 
 	public void setPs(String ps) {
 		this.ps = ps;
+	}
+
+	public String getDomain() {
+		return domain;
+	}
+
+	public void setDomain(String domain) {
+		this.domain = domain;
+	}
+
+	public String getIsPublic() {
+		return isPublic;
+	}
+
+	public void setIsPublic(String isPublic) {
+		this.isPublic = isPublic;
 	}
 
 

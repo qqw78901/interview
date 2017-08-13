@@ -8,5 +8,7 @@ import com.jeff.vo.FormVo;
 public interface FormService extends BaseService<Form, String> {
 	public FormShowVo show(Form form);
 	public Page<FormVo> getByPage(Form form);
+	public Page<FormVo> getPublicFormByPage(Form form);
     public int remove(String id);
+    public String getIdByDomain(String domain);
 }

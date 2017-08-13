@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeff.mapper.WifiUserMapper">
+
+	<resultMap type="WifiUser" id="WifiUserRM">
+	</resultMap>
+	
+	<!-- 上面是一个整体 -->
+
+	<insert id="insert" parameterType="WifiUser">
+	</insert>
+
+	<delete id="deleteById" parameterType="String">
+	</delete>
+
+	<update id="update" parameterType="WifiUser">
+	</update>
+
+	<select id="getById" parameterType="String" resultType="WifiUser">
+	</select>
+
+	<select id="list" parameterType="WifiUser" resultMap="WifiUserRM">
+	</select>
+
+	<select id="findByPage" parameterType="WifiUser" resultMap="WifiUserRM">
+	</select>
+	
+	<select id="login" parameterType="WifiUser" resultMap="WifiUserRM">
+	   	select *
+	   	from `wifi_user` w
+	   	where
+		w.login_name = #{loginName} and
+		w.psw = #{psw} and
+		w.type = #{type}
+	</select>
+
+</mapper>

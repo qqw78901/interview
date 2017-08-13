@@ -9,10 +9,10 @@
 	<resultMap id="FromShowRM" type="FormShowVo">
 		<id property="id" column="id" />
 		<result property="title" column="title" />
-		<result property="ps" column="ps"/>
-		<result property="deptName" column="dp"/>
-		<result property="interview" column="interview"/>
-		<result property="interviewId" column="interview_id"/>
+		<result property="ps" column="ps" />
+		<result property="deptName" column="dp" />
+		<result property="interview" column="interview" />
+		<result property="interviewId" column="interview_id" />
 		<result property="timeLimit" column="time_limit" />
 		<result property="startTime" column="start_time" />
 		<result property="endTime" column="end_time" />
@@ -27,10 +27,10 @@
 
 		</collection>
 	</resultMap>
-	
-	<resultMap id = "FormVoRM" type = "FormVo">
+
+	<resultMap id="FormVoRM" type="FormVo">
 	</resultMap>
-	
+
 	<!-- 上面是一个整体 -->
 
 	<insert id="insert" parameterType="Form">
@@ -41,12 +41,12 @@
 
 	<update id="update" parameterType="Form">
 	</update>
-	
+
 	<select id="getById" parameterType="String" resultType="Form">
 	</select>
 
 	<select id="list" parameterType="Form" resultMap="FormRM">
-	
+
 	</select>
 
 	<select id="findByPage" parameterType="Form" resultMap="FormRM">
@@ -54,36 +54,60 @@
 
 	<select id="show" parameterType="Form" resultMap="FromShowRM">
 		SELECT
-		f.*,t.id as th_id,t.name,t.orderby,t.type,t.type_text,t.required,i.title as interview,i.id as interview_id,d.name as
+		f.*,t.id
+		as th_id,t.name,t.orderby,t.type,t.type_text,t.required,i.title as
+		interview,i.id as interview_id,d.name as
 		dp
 		FROM `form` f
-		LEFT JOIN `form_th` t ON t.form_id=f.id and t.state="T"
-		LEFT JOIN `interview` i on i.id=f.interview_id and i.state="T"
-		LEFT JOIN `dept` d on d.id=f.dept_id and d.state="T"
+		LEFT JOIN
+		`form_th` t ON t.form_id=f.id and t.state="T"
+		LEFT JOIN `interview` i
+		on i.id=f.interview_id and i.state="T"
+		LEFT JOIN `dept` d on
+		d.id=f.dept_id and d.state="T"
 		WHERE f.id=#{id} and f.state="T"
 	</select>
-	
+
 	<select id="getByPage" parameterType="Form" resultMap="FormVoRM">
-		select 
+		select
 		f.*,i.title as name
 		from form f,interview i
-		where f.dept_id=#{deptId} 
+		where f.dept_id=#{deptId}
 		and f.state="T"
-		and i.id=f.interview_id 
+		and i.id=f.interview_id
 		<if test="title != null and title !=''">
 			AND f.title LIKE CONCAT("%",#{title},"%")
 		</if>
 	</select>
 	
+	<select id="getPublicFormByPage" parameterType="Form" resultMap="FormVoRM">
+		select
+		f.*,i.title as name,d.name as deptName
+		from form f,interview i,dept d
+		where 
+		 f.state="T"
+		and f.is_public="T"
+		and i.id=f.interview_id
+		and f.dept_id=d.id
+		and d.state="T"
+		<if test="title != null and title !=''">
+			AND f.title LIKE CONCAT("%",#{title},"%")
+		</if>
+	</select>
+
+	<select id="getIdByDomain" parameterType="String" resultType="String">
+		select id from form where domain=#{domain}
+	</select>
+
 	<update id="remove" parameterType="String">
-	update 
-	form f,form_th t 
-	set 
-	f.state="F",
-	t.state="F"
-	where 
-	f.id=#{id}
-	and 
-	t.form_id = f.id;
+		update
+		form f,form_th t
+		set
+		f.state="F",
+		t.state="F"
+		where
+		f.id=#{id}
+		and
+		t.form_id = f.id;
 	</update>
 </mapper>

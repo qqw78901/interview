@@ -85,6 +85,30 @@ function creatForm(value) {
                 "\" id=\"form_th_" + order + "\"></textarea>" +
                 "</div>";
                 break;
+            case "check":
+                sonArr = JSON.parse(ele.typeText);
+                content+= "<label>"+eleVal+required+"</label>";
+                content+="                                                        <div class=\"form-group icheck th_check\" data-thid=\"" +eleId+"\" id=\"form_th_" +order+
+                "\">";
+                $(sonArr).each(function(j,item){
+                    content+="                                                            <div class=\"square-green\">"+
+                    "                                                                <div class=\"checkbox\"><label>"+
+                    "                                                                    <input class=\"" +requiredClass+
+                    "\"tabindex=\"3\" type=\"checkbox\" value=\"" +item+
+                    "\" name=\"form_th_" +order+ "\">"+ "" +item+ "</label>"+
+                    "                                                                </div>"+
+                    "                                                            </div>";
+                });
+                content+="</div>";
+                break;
+            case "option":
+                sonArr = JSON.parse(ele.typeText);
+                content+= "<label>"+eleVal+required+"</label>";
+                content+="<div class=\"form-group th_option\" data-thid=\"" +eleId+"\" id=\"form_th_" +order+"\"><select class='form-control'>";
+                $(sonArr).each(function(i,item){
+                    content+="<option value=\"" +item+ "\">" +item+ "</option>"
+                });
+                content+="</select></div>"
 
 
         }
@@ -126,6 +150,24 @@ function submitForm(){
         eleArr.push(obj);
         console.log(obj);
     });
+    $(".th_check").each(function(){
+        var obj={};
+        obj.thId = $(this).data('thid')*1;
+        var t=[];
+        $(this).find('input:checked').each(function(){
+            t.push($(this).val());
+        });
+        obj.text=JSON.stringify(t);
+        eleArr.push(obj);
+        console.log(obj);
+    });
+    $(".th_option").each(function(){
+        var obj={};
+        obj.thId = $(this).data('thid')*1;
+        obj.text=$(this).find('select').val();
+        eleArr.push(obj);
+        console.log(obj);
+    });
     push.elements = eleArr;
     console.log(push);
     $.ajax({
@@ -145,7 +187,12 @@ function submitForm(){
                      yes:function(index){
                          window.location.href="result.jsp?form="+FormId;
                          layer.close(index);
-                         LAYER=layer.open({type:2});
+                         try{
+                             LAYER = layer.load(2);
+                         }catch (e){
+                             LAYER=layer.open({type:2});
+
+                         }
                      }
                  });	
         	}else{
@@ -192,6 +239,7 @@ function addValidate(){
             },
             phone:{
                 required:true,
+                rangelength:[1,11],
                 Phone:true
             }
         },

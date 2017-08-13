@@ -9,6 +9,13 @@ $(function () {
     $("#add_form_radio").click(function(){
         addRadio();
     });
+    $("#add_form_check").click(function(){
+       addCheck();
+    });
+    $("#add_form_selec").click(function(){
+        addOption();
+    });
+
     $("#apply_form_th").click(function(){
         preview();
     });
@@ -88,6 +95,41 @@ function addSelect() {
         $("#end_Dt").datetimepicker('setStartDate',$(this).val()).val($(this).val());
     });
 }
+function addCheck(){
+    var content = "<div class='check_div' id='add_form_group" +markInput+
+        "'> <label>多选</label>";
+    content += "                                                        <div class=\"form-group\" id=\"add_form_group_head" + markInput + "\">" +
+    "                                                            <input type=\"text\" name=\"th_detail\" class=\"form-control add_th_input need_rq\" data-qtype=\"check\" id=\"add_input" + markInput +
+    "\" placeholder=\"在此输入多选标题\">" +
+    "                                                        </div>";
+
+    content += "                                                        <div class=\"form-group\" id=\"add_form_group_element" + markInput + "\">" +
+    "                                                            <input type=\"text\" name=\"th_detail\" class=\"tags  need_rq \"  id=\"add_input_element_" + markInput +
+    "\" placeholder=\"输入选项内容回车确定\">" +
+    "                                                        </div>";
+    content += "</div>";
+    $("#th-add-body").append(content);
+    $('#add_input_element_'+markInput).tagsInput({width:'auto',defaultText:'回车增加'});
+    markInput++;
+}
+
+function addOption(){
+    var content = "<div class='option_div' id='add_form_group" +markInput+
+        "'> <label>下拉框</label>";
+    content += "                                                        <div class=\"form-group\" id=\"add_form_group_head" + markInput + "\">" +
+    "                                                            <input type=\"text\" name=\"th_detail\" class=\"form-control add_th_input need_rq\" data-qtype=\"option\" id=\"add_input" + markInput +
+    "\" placeholder=\"在此输入问题标题\">" +
+    "                                                        </div>";
+
+    content += "                                                        <div class=\"form-group\" id=\"add_form_group_element" + markInput + "\">" +
+    "                                                            <input type=\"text\" name=\"th_detail\" class=\"tags  need_rq \"  id=\"add_input_element_" + markInput +
+    "\" placeholder=\"输入选项内容回车确定\">" +
+    "                                                        </div>";
+    content += "</div>";
+    $("#th-add-body").append(content);
+    $('#add_input_element_'+markInput).tagsInput({width:'auto',defaultText:'回车增加'});
+    markInput++;
+}
 
 function preview(){
     var content="";
@@ -119,9 +161,32 @@ function preview(){
                 "                                                            </div>";
             });
             content+="</div>"
-
+        }else if(type=="check"){
+            var  eleHead1 = $(val).val()+"&nbsp;(必填)";
+            var eleArr1 = $(val).closest('.check_div').find('.tags').val().split(',');
+            content+=
+                "<label>"+eleHead1+"</label>";
+            content+="                                                        <div class=\"form-group icheck\" id=\"form_th_" +order+
+            "\">";
+            $(eleArr1).each(function(i,item){
+                content+="                                                            <div class=\"square-green\">"+
+                "                                                                <div class=\"checkbox\"><label>"+
+                "                                                                    <input tabindex=\"3\" type=\"checkbox\" value=\"" +item+
+                "\" name=\"form_th_" +order+ "\">"+ "" +item+ "</label>"+
+                "                                                                </div>"+
+                "                                                            </div>";
+            });
+            content+="</div>"
+        }else if(type="option"){
+            var  eleHead2 = $(val).val()+"&nbsp;(必填)";
+            var eleArr2 = $(val).closest('.option_div').find('.tags').val().split(',');
+            content+= "<label>"+eleHead2+"</label>";
+            content+="<div class=\"form-group\" id=\"form_th_" +order+"\"><select class='form-control'>";
+            $(eleArr2).each(function(i,item){
+               content+="<option value=\"" +item+ "\">" +item+ "</option>"
+            });
+            content+="</select></div>"
         }
-
     });
     $("#add_th_preview").html(content);
     initIcheck();
@@ -177,6 +242,15 @@ function saveForm(){
                 element.required="T";
                 element.typeText =JSON.stringify($(val).closest('.radio_div').find('.tags').val().split(','));
                 break;
+            case "check":
+                element.required="T";
+                element.typeText =JSON.stringify($(val).closest('.check_div').find('.tags').val().split(','));
+                break;
+            case "option":
+                element.required="T";
+                element.typeText =JSON.stringify($(val).closest('.option_div').find('.tags').val().split(','));
+                break;
+
         }
         if(qType!='text'||qType!='textarea'){
 

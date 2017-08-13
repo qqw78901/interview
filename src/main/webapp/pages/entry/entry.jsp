@@ -55,6 +55,8 @@
 
 </head>
 <body data-formid="<%=request.getParameter("form")%>">
+<%=request.getRequestURL()%>
+<%=request.getRequestURI()%>
 <section>
     <%-- section不可少 少了会横向滚动--%>
 <div>
@@ -176,7 +178,7 @@
 <script src="<%=request.getContextPath()%>/adminex/js/scripts.js"></script>
 <script src="<%=request.getContextPath()%>/pages/js/common.js"></script>
 <%--user js--%>
-<script type="application/javascript" src="../js/entry/entry.js"></script>
+<script type="application/javascript" src="<%=request.getContextPath()%>/pages/js/entry/entry.js"></script>
 
 </body>
 </html>

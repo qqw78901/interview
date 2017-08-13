@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeff.mapper.InfoMapper">
+
+	<resultMap type="Info" id="infoRM">
+	</resultMap>
+	
+	<!-- 上面是一个整体 -->
+
+	<insert id="insert" parameterType="Info">
+	</insert>
+
+	<delete id="deleteById" parameterType="String">
+	</delete>
+
+	<update id="update" parameterType="Info">
+	</update>
+
+	<select id="getById" parameterType="String" resultType="Info">
+	</select>
+
+	<select id="list" parameterType="Info" resultMap="infoRM">
+	</select>
+
+	<select id="findByPage" parameterType="Info" resultMap="infoRM">
+	</select>
+
+</mapper>

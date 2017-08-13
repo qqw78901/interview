@@ -6,9 +6,11 @@
  */
 package com.jeff.common;
 
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.LineNumberReader;
 import java.util.HashMap;
 import java.util.HashSet;
-
 import java.util.Map;
 import java.util.Set;
 
@@ -48,6 +50,29 @@ public class BaseInfo {
 		}
 		return ip;
 	}
+	
+	public static String getMACAddress(String ip) {  
+        String str = "";  
+        String macAddress = "";  
+        try {  
+            Process p = Runtime.getRuntime().exec("nbtstat -A " + ip);  
+            InputStreamReader ir = new InputStreamReader(p.getInputStream());  
+            LineNumberReader input = new LineNumberReader(ir);  
+            for (int i = 1; i < 100; i++) {  
+                str = input.readLine();  
+                if (str != null) {  
+                    if (str.indexOf("MAC Address") > 1) {  
+                        macAddress = str.substring(  
+                                str.indexOf("MAC Address") + 14, str.length());  
+                        break;  
+                    }  
+                }  
+            }  
+        } catch (IOException e) {  
+            e.printStackTrace(System.out);  
+        }  
+        return macAddress;  
+    }  
 
 	// 登录名
 	public static String GetUserName(HttpServletRequest request) {
@@ -61,6 +86,20 @@ public class BaseInfo {
 	// 登录名
 	public static void SetUserName(HttpServletRequest request, String username) {
 		request.getSession().setAttribute("username", username);
+	}
+	
+	// mac
+	public static String GetMac(HttpServletRequest request) {
+		String mac = "";
+		if (request.getSession().getAttribute("mac") != null) {
+			mac = request.getSession().getAttribute("mac").toString();
+		}
+		return mac;
+	}
+
+	// mac
+	public static void SetMac(HttpServletRequest request, String mac) {
+		request.getSession().setAttribute("mac", mac);
 	}
 
 	// 用户名

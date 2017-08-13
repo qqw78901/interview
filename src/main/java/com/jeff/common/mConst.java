@@ -7,7 +7,7 @@ public class mConst {
 
 	public final static String serverName = "招新报名平台";// 项目名
 
-	public final static String serverCopyright = "&copy;左文祺———2016数据库课程设计";// 版权
+	public final static String serverCopyright = "&copy; All Rights Reserved.";// 版权
 
 	public final static String Version = "V2.1";// 版本号
 

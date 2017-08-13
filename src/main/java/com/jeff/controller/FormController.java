@@ -47,13 +47,30 @@ public class FormController {
 		try {
 			Form form = formInsertVo.getForm();
 			form.setDeptId(BaseInfo.GetUserDeptId(request));
-			formService.add(form);
 			List<FormTh> formthes = formInsertVo.getElements();
-			formThService.batchFormTh(formthes);
+            if(formthes==null)
+                return rm.fail().info("请输入问题");    
+            formService.add(form);
+            formThService.batchFormTh(formthes);
 			rm.success().info("增加成功");
 		} catch (Exception e) {
 			e.printStackTrace();
+			Form form = formInsertVo.getForm();
+			formService.remove(form.getId());
 			rm.fail().info("增加失败");
+		}
+		return rm;
+	}
+	
+	@RequestMapping("getPublicFormByPage")
+	@ResponseBody
+	public ResultMap getPublicFormByPage(HttpServletRequest request,Form form) {
+		ResultMap rm = new ResultMap();
+		try {
+			rm.success().page(formService.getPublicFormByPage(form)).info("查询成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			rm.fail().info("查询失败");
 		}
 		return rm;
 	}

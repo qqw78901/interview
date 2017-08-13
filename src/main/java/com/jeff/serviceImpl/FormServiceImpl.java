@@ -31,11 +31,23 @@ public class FormServiceImpl extends BaseServiceImpl<Form, String>implements For
 	public Page<FormVo> getByPage(Form form) {
 		return this.buildVoPage(formMapper.getByPage(form));
 	}
+	
+	@Override
+	public Page<FormVo> getPublicFormByPage(Form form) {
+		return this.buildVoPage(formMapper.getPublicFormByPage(form));
+	}
 
 	@Override
 	public int remove(String id) {
 		return formMapper.remove(id);
 	}
+
+	@Override
+	public String getIdByDomain(String domain) {
+		return formMapper.getIdByDomain(domain);
+	}
+
+
 
 
 

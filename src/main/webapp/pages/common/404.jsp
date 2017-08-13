@@ -31,6 +31,7 @@
             <h1><img alt="" src="<%=request.getContextPath()%>/adminex/images/404-error.png"></h1>
             <h2>无法找到网页</h2>
             <h3>页面走丢了...</h3>
+            <p><%=request.getRequestURL()%></p>
             <a class="back-btn" href="<%=request.getContextPath()%>/pages/admin/index.jsp"> 回到首页</a>
         </section>
 

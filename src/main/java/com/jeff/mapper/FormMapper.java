@@ -12,5 +12,7 @@ import com.jeff.vo.FormVo;
 public interface FormMapper extends BaseMapper<Form, String> {
 	FormShowVo show(Form form);
 	List<FormVo> getByPage(Form form);
+	List<FormVo> getPublicFormByPage(Form form);
     int remove(String id);
+    String getIdByDomain(String domain);
 }
